@@ -1,0 +1,14 @@
+FROM node:13.1.0
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
+# Docker Volume, puts a reference in the folder instead of an actual folder
+# -v /app/node_modules -v/$pwd/:/app
+# reminder about volume, 
