@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true cwhite5/docker-course npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "cwhite-docker-course"
+  env: "CwhiteDockerCourse-env"
+  bucket_name: "elasticbeanstalk-us-east-2-047401370718"
+  bucket_path: "cwhite-docker-course"
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
