@@ -5,3 +5,6 @@ services:
 
 before_install:
   - docker build -t cwhite5/docker-course -f Dockerfile.dev . 
+
+script:
+  - docker run -e CI=true cwhite5/docker-course npm run test
